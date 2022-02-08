@@ -23,12 +23,10 @@ class Map
     private:
         int height;
         int weight;
-        // Node initN;
-        // Node goalN;
+        Node* initN;
+        Node* goalN;
         Node* allN; 
     public:
-        Node initN;
-        Node goalN;
         int dec=1;
         Map(){}
         Map(int h, int w): height(h),weight(w) //TODO: add some check for the feasibility......
@@ -84,17 +82,25 @@ class Map
 
         void get_init_state(double x_, double y_)
         {
-            initN=allN[(long)(x_+ weight*y_)*dec];
-            initN.g=0.0;
-            
+            initN=&allN[(long)(x_+ weight*y_)*dec];
+            initN->g=0.0;
+            initN->prev=nullptr;
+            initN->obstacle=false;
+            initN->visited=false;
+
         }
 
         void get_goal_state(double x_, double y_)
         {
-            goalN=allN[(long)(x_+ weight*y_)*dec];
+            goalN=&allN[(long)(x_+ weight*y_)*dec];
             
             
-            cout<<"The goal state is: ("<<goalN.x<<","<<goalN.y<<")"<<endl;
+            cout<<"The goal state is: ("<<goalN->x<<","<<goalN->y<<")"<<endl;
+        }
+
+        void get_obstacle(double x_, double y_)
+        {
+            allN[(long)(x_+ weight*y_)*dec].obstacle=true;
         }
 
         void A_star()
@@ -103,20 +109,16 @@ class Map
             
                     
             list<Node*> toTestNodes; //toTestNodes contains a list of element for which we want to know their neighbors values.
-            toTestNodes.push_back(&initN);
-            Node* currentN=&initN;
+            toTestNodes.push_back(initN);
+            Node* currentN=initN;
             int c;
-            while (!toTestNodes.empty() && currentN!=&goalN)
+            while (!toTestNodes.empty() && currentN!=goalN)
                 {
                     toTestNodes.sort(CompareNodes()); //CompareNodes is defined within this class, because we need it in the same scope.
                     
                     
-                    while (!toTestNodes.empty() && toTestNodes.front()->visited) //We may end up with an empty list and no goal state.
-                        //cout<<"We drop visited node: "<<(toTestNodes.front())->x<<", "<<(toTestNodes.front())->y<<endl;
-                        {
+                    while (!toTestNodes.empty() && toTestNodes.front()->visited) //We may end up with an empty list and no goal state
                         toTestNodes.pop_front();
-                        
-                        }
                 
                     if (toTestNodes.empty()) //This is the case when we abort
                         {
@@ -125,32 +127,25 @@ class Map
 
                     
                     currentN=toTestNodes.front();
-
-                    
                     currentN->visited=true;
-                    cout<<"Now we look at the neighbors of: "<<currentN->x<<", "<<currentN->y<<endl;
                     for (auto& it: currentN->neighB)  //We iteratate with a smart pointer to pointers that point to the nodes
                         {
-                            cout<<"Now we have: "<<it->x<<","<<it->y<<endl;
                             if (!(it->visited) && !(it->obstacle))  //If they are not neither visited or neither obstacles, we add to the list of promising nodes
                                 {
                                     toTestNodes.push_back(it);
                                 }
-                            else    
-                                {continue;}
+                            
                             
                             double currentG= currentN->g + distance(it, currentN); //The neighbor node, could be already reachable from other node, so we have first
                                                                                  // to check if from currentN is better to reach it, otherwise we don't consider it 
-                            cout<<"Current g is:"<<currentG<<endl;
-                            cout<<"Current it->g is:"<< it->g<<endl;
-                            if (currentG < it->g && it!=&initN) //the g attribute is set to infinity, at the beginning.
+
+                            if (currentG < it->g) //the g attribute is set to infinity, at the beginning.
                                 {
+                                    
                                     it->prev=currentN;
                                     it->g=currentG;
-                                    
-                                    cout<<"the parent of neigh "<<it->x<<", "<<it->y<<" is "<<currentN->x<<", "<<currentN->y<<endl;
-                                    it->tot= it->g + distance(it, &goalN);
-                                    cout<<"This is the cost: "<<it->tot<<endl;
+                                    it->tot= it->g + 5*distance(it, goalN);
+
                                 }
                         
                         }
@@ -165,20 +160,19 @@ class Map
                 
                 list<Node*> path;
                 cout<<"c1"<<endl;
-                Node* d=&goalN;
+                Node* d=goalN;
                 cout<<"c2"<<endl;
 
                 path.push_front(d);
                 cout<<"c3"<<endl;
-                cout<<(d->prev)<<endl;
-                // while (d->prev!=nullptr)
-                //     {
-                //         cout<<d->x<<" "<<d->y<<endl;
-                //         d=d->prev;
-                //         path.push_front(d);
-                //     }
-                // for (auto state: path)
-                //     cout<<state->x <<","<<state->y<<endl;
+                while (d->prev!=nullptr)
+                    {
+                        
+                        d=d->prev;
+                        path.push_front(d);
+                    }
+                for (auto state: path)
+                    cout<<state->x <<","<<state->y<<endl;
             }
 
         struct CompareNodes
