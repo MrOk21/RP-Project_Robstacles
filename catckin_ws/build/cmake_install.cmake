@@ -131,7 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/mrok21/RP-Project_Robstacles/catckin_ws/build/gtest/cmake_install.cmake")
-  include("/home/mrok21/RP-Project_Robstacles/catckin_ws/build/robstacles/cmake_install.cmake")
+  include("/home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/cmake_install.cmake")
 
 endif()
 
