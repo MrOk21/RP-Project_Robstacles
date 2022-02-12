@@ -1,2 +1,2 @@
-nav_robstacles/nav_rob
--DCATKIN_DEVEL_PREFIX=/home/mrok21/RP-Project_Robstacles/catckin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/mrok21/RP-Project_Robstacles/catckin_ws/install -DCATKIN_WHITELIST_PACKAGES=nav_rob -G Unix Makefiles
+nav_robstacles/loc_rob:nav_robstacles/nav_rob:robstacles
+-DCATKIN_DEVEL_PREFIX=/home/mrok21/RP-Project_Robstacles/catckin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/mrok21/RP-Project_Robstacles/catckin_ws/install -G Unix Makefiles

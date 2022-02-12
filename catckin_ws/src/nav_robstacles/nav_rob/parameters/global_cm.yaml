@@ -1,0 +1,9 @@
+#As seen in the common config. file, these are the exclusive characteristics for the global path planning.
+
+global_costmap:
+  global_frame: odom
+  update_frequency: 30.0
+  publish_frequency: 30.0
+  transform_tolerance: 0.2
+  resolution: 0.1
+
