@@ -285,6 +285,45 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named rviz_user2d
+
+# Build rule for target.
+rviz_user2d: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rviz_user2d
+.PHONY : rviz_user2d
+
+# fast build rule for target.
+rviz_user2d/fast:
+	$(MAKE) -f nav_robstacles/nav_rob/CMakeFiles/rviz_user2d.dir/build.make nav_robstacles/nav_rob/CMakeFiles/rviz_user2d.dir/build
+.PHONY : rviz_user2d/fast
+
+#=============================================================================
+# Target rules for targets named goal
+
+# Build rule for target.
+goal: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 goal
+.PHONY : goal
+
+# fast build rule for target.
+goal/fast:
+	$(MAKE) -f nav_robstacles/nav_rob/CMakeFiles/goal.dir/build.make nav_robstacles/nav_rob/CMakeFiles/goal.dir/build
+.PHONY : goal/fast
+
+#=============================================================================
+# Target rules for targets named a_star
+
+# Build rule for target.
+a_star: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 a_star
+.PHONY : a_star
+
+# fast build rule for target.
+a_star/fast:
+	$(MAKE) -f nav_robstacles/nav_rob/CMakeFiles/a_star.dir/build.make nav_robstacles/nav_rob/CMakeFiles/a_star.dir/build
+.PHONY : a_star/fast
+
+#=============================================================================
 # Target rules for targets named tf2_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -1112,6 +1151,9 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... rviz_user2d"
+	@echo "... goal"
+	@echo "... a_star"
 	@echo "... tf2_msgs_generate_messages_nodejs"
 	@echo "... tf2_msgs_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_eus"

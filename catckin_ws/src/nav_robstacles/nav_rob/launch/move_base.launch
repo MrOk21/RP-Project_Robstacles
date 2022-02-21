@@ -1,0 +1,16 @@
+<launch>
+
+
+<!-- Move Base Node /DonebyP-->
+  <!-- Subscribe: /move_base_simple/goal, we subscribe to the rviz user published topic-->
+  <!-- Publish: /cmd_vel, This topic of type geometry_msgs is published by the move_base node-->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find nav_rob)/parameters/common_cm.yaml" command="load"/>
+    <rosparam file="$(find nav_rob)/parameters/common_cm.yaml" command="load"/>
+    <rosparam file="$(find nav_rob)/parameters/local_cm.yaml" command="load" />
+    <rosparam file="$(find nav_rob)/parameters/global_cm.yaml" command="load" />
+    <rosparam file="$(find nav_rob)/parameters/base_local_planner.yaml" command="load" />
+  </node>
+
+
+</launch>

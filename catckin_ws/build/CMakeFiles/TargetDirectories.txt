@@ -39,6 +39,9 @@
 /home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/list_install_components.dir
 /home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/rebuild_cache.dir
 /home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/test.dir
+/home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/rviz_user2d.dir
+/home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/goal.dir
+/home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/a_star.dir
 /home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir
 /home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/tf2_msgs_generate_messages_lisp.dir
 /home/mrok21/RP-Project_Robstacles/catckin_ws/build/nav_robstacles/nav_rob/CMakeFiles/install/local.dir
