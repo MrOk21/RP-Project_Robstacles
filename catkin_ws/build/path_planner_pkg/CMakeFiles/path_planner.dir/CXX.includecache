@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner_pkg/src/path_planner.cpp
+path_planner.h
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner_pkg/src/path_planner.h
+

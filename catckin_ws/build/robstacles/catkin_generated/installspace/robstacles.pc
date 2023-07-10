@@ -1,8 +1,0 @@
-prefix=/home/mrok21/RP-Project_Robstacles/catckin_ws/install
-
-Name: robstacles
-Description: Description of robstacles
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

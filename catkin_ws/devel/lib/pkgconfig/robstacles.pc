@@ -1,0 +1,8 @@
+prefix=/home/peppe/RP-Project_Robstacles/catkin_ws/devel
+
+Name: robstacles
+Description: Description of robstacles
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
