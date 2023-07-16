@@ -70,44 +70,29 @@ path_planner/CMakeFiles/path_planner_node.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planner_node.dir/src/main.cpp.s"
 	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/main.cpp -o CMakeFiles/path_planner_node.dir/src/main.cpp.s
 
-path_planner/CMakeFiles/path_planner_node.dir/src/Astar.cpp.o: path_planner/CMakeFiles/path_planner_node.dir/flags.make
-path_planner/CMakeFiles/path_planner_node.dir/src/Astar.cpp.o: /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/Astar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object path_planner/CMakeFiles/path_planner_node.dir/src/Astar.cpp.o"
-	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planner_node.dir/src/Astar.cpp.o -c /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/Astar.cpp
+path_planner/CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.o: path_planner/CMakeFiles/path_planner_node.dir/flags.make
+path_planner/CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.o: /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/occupancy_grid.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object path_planner/CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.o"
+	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.o -c /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/occupancy_grid.cpp
 
-path_planner/CMakeFiles/path_planner_node.dir/src/Astar.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planner_node.dir/src/Astar.cpp.i"
-	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/Astar.cpp > CMakeFiles/path_planner_node.dir/src/Astar.cpp.i
+path_planner/CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.i"
+	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/occupancy_grid.cpp > CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.i
 
-path_planner/CMakeFiles/path_planner_node.dir/src/Astar.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planner_node.dir/src/Astar.cpp.s"
-	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/Astar.cpp -o CMakeFiles/path_planner_node.dir/src/Astar.cpp.s
-
-path_planner/CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.o: path_planner/CMakeFiles/path_planner_node.dir/flags.make
-path_planner/CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.o: /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/OccMapTransform.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object path_planner/CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.o"
-	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.o -c /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/OccMapTransform.cpp
-
-path_planner/CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.i"
-	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/OccMapTransform.cpp > CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.i
-
-path_planner/CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.s"
-	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/OccMapTransform.cpp -o CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.s
+path_planner/CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.s"
+	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/occupancy_grid.cpp -o CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.s
 
 # Object files for target path_planner_node
 path_planner_node_OBJECTS = \
 "CMakeFiles/path_planner_node.dir/src/main.cpp.o" \
-"CMakeFiles/path_planner_node.dir/src/Astar.cpp.o" \
-"CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.o"
+"CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.o"
 
 # External object files for target path_planner_node
 path_planner_node_EXTERNAL_OBJECTS =
 
 /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: path_planner/CMakeFiles/path_planner_node.dir/src/main.cpp.o
-/home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: path_planner/CMakeFiles/path_planner_node.dir/src/Astar.cpp.o
-/home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: path_planner/CMakeFiles/path_planner_node.dir/src/OccMapTransform.cpp.o
+/home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: path_planner/CMakeFiles/path_planner_node.dir/src/occupancy_grid.cpp.o
 /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: path_planner/CMakeFiles/path_planner_node.dir/build.make
 /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: /opt/ros/noetic/lib/libtf.so
 /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: /opt/ros/noetic/lib/libtf2_ros.so
@@ -180,7 +165,7 @@ path_planner_node_EXTERNAL_OBJECTS =
 /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.2.0
 /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.2.0
 /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node: path_planner/CMakeFiles/path_planner_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable /home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planner/path_planner_node"
 	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/path_planner_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

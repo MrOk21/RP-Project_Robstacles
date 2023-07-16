@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/include/path_planner/Astar.h
-iostream
--
-queue
--
-unordered_map
--
-opencv2/opencv.hpp
--
-
-/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/include/path_planner/OccMapTransform.h
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/include/path_planner/occupancy_grid.h
 iostream
 -
 cmath
@@ -45,10 +35,8 @@ geometry_msgs/Quaternion.h
 -
 opencv2/opencv.hpp
 -
-path_planner/Astar.h
-/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/path_planner/Astar.h
-path_planner/OccMapTransform.h
-/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/path_planner/OccMapTransform.h
+path_planner/occupancy_grid.h
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner/src/path_planner/occupancy_grid.h
 
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string

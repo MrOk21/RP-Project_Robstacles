@@ -504,16 +504,22 @@ my_package_SOURCE_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/src/my_
 nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
 
 //Value Computed by CMake
-path_planner_BINARY_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner
+path_planner_BINARY_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planning
 
 //Value Computed by CMake
-path_planner_SOURCE_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner
+path_planner_SOURCE_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning
 
 //Value Computed by CMake
 path_planner_pkg_BINARY_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planner_pkg
 
 //Value Computed by CMake
 path_planner_pkg_SOURCE_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planner_pkg
+
+//Value Computed by CMake
+path_planning_BINARY_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/build/path_planning
+
+//Value Computed by CMake
+path_planning_SOURCE_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning
 
 //Value Computed by CMake
 robstacles_BINARY_DIR:STATIC=/home/peppe/RP-Project_Robstacles/catkin_ws/build/robstacles
@@ -732,7 +738,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
