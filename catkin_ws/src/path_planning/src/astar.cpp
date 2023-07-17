@@ -33,21 +33,6 @@ void Astar::PathPlanning(Point _startPoint, Point _targetPoint, vector<Point>& p
     ReconstructPath(TailNode, path);
 }
 
-void Astar::DrawPath(Mat& _Map, vector<Point>& path, InputArray Mask, Scalar color,
-        int thickness, Scalar maskcolor)
-{
-    if(path.empty())
-    {
-        cout << "Path is empty!" << endl;
-        return;
-    }
-    
-    _Map.setTo(maskcolor, Mask);
-    for(auto it:path)
-    {
-        rectangle(_Map, it, it, color, thickness);
-    }
-}
 
 void Astar::MapProcess(Mat& Mask)
 {
@@ -245,3 +230,9 @@ void Astar::ReconstructPath(Node* TailNode, vector<Point>& path)
 }
 
 };
+
+std::ostream& operator<<(std::ostream& os, const std::vector<Point>& vec) {
+    os << "The path planning has been successfull!!"<<endl;
+    os << "The number of waypoints is: " << vec.size()<<endl;
+    return os;
+}

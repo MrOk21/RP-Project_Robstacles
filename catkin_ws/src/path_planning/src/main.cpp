@@ -32,11 +32,16 @@ int rate;
 
 path_planning::Astar_Mods mods;
 path_planning::Astar astar_planner;
+nav_msgs::Path path_msg;
 Point start_point, target_point;
 
 
 // Ros Nodes
 ros::Subscriber map_sub;
+ros::Subscriber initpose_sub;
+ros::Subscriber goalpose_sub;
+
+ros::Publisher path_pub;
 
 
 // Callbacks
@@ -44,36 +49,37 @@ void StartPointCallback(const geometry_msgs::PoseWithCovarianceStamped& msg)
 {
     Point2d map_point = Point2d(msg.pose.pose.position.x, msg.pose.pose.position.y);
     // start_point is transformed into an integer and converted into an image point
-    Occ_GridParam.Map2ImageTransform(map_point, start_point);
+    occgrid_params.Map2ImageTransform(map_point, start_point);
 
     // Set flag
     found_start = true;
-    if(map_flag && found_start && found_target)
-    {
-        start_flag = true;
-    }
+    ROS_INFO("INITIAL POSE have been found!");
 
+    if(found_map && found_start && found_target)
+    {
+        start_plan = true;
+    }
 }
 
 void TargetPointCallback(const geometry_msgs::PoseStamped& msg)
 {
-    Point2d src_point = Point2d(msg.pose.position.x, msg.pose.position.y);
-    Occ_GridParam.Map2ImageTransform(src_point, targetPoint);
+    Point2d map_point = Point2d(msg.pose.position.x, msg.pose.position.y);
+    occgrid_params.Map2ImageTransform(map_point, target_point);
 
     // Set flag
-    targetpoint_flag = true;
-    if(map_flag && startpoint_flag && targetpoint_flag)
+    found_target = true;
+    if(found_map && found_start && found_target)
     {
-        start_flag = true;
+        start_plan = true;
     }
+    ROS_INFO("TARGET POSE have been found!");
+
 
 }
 void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
 {
     // Get parameters
-    cout<<"Message is in the house"<<endl;
     occgrid_params.GetParams(msg);
-    cout<<"Message is in the house2"<<endl;
 
     // Compute the map obj
     int h = occgrid_params.h;
@@ -82,7 +88,6 @@ void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
 
     // h x w matrix
     Mat Map(h, w, CV_8UC1);
-    cout<<"Message is in the house3"<<endl;
     
     for(int i=0;i<h;i++)
     {
@@ -103,8 +108,6 @@ void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
     Mat Mask;
     
     astar_planner.InitAstar(Map, Mask, mods);
-    cout<<"Message is in the houseinitastar"<<endl;
-
     // Publish Mask
     occgrid_mask.header.stamp = ros::Time::now();
     occgrid_mask.header.frame_id = "map";
@@ -119,12 +122,12 @@ void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
             occgrid_mask.data.push_back(occupancy_prob);
         }
     }
-    cout<<"Message is in the house final part"<<endl;
 
     // Flags
     found_map = true;
     found_start = false;
     found_target = false;
+    ROS_INFO("Map and Obstacle maps have been loaded!");
 
 
 }
@@ -145,26 +148,66 @@ int main(int argc, char * argv[])
     start_plan = false;
     // Set ros rate to 10 Hz
     rate = 10;
+    mods.tolerance = 5;
+    mods.Eucl_Heuristics = true;
 
     // Parameter
 
     // Subscribe topics
     map_sub = nh.subscribe("map", 10, MapCallback);
+    initpose_sub = nh.subscribe("initialpose", 10, StartPointCallback);
+    goalpose_sub = nh.subscribe("move_base_simple/goal", 10, TargetPointCallback);
+
+    // Advertise topic
+    path_pub = nh.advertise<nav_msgs::Path>("nav_path", 10);
 
     ros::Rate loop_rate(rate);
 
     while(ros::ok())
     {
-        if (found_map)
+        if (start_plan)
         {
-            cout<<"Found MAP!!!!"<<endl;
-        }
-        // else
-        //     {
-        //     cout<<"MAP was not found!!!!"<<endl;
+            double start_time = ros::Time::now().toSec();
+            // Start planning path
+            vector<Point> waypoints;
+            astar_planner.PathPlanning(start_point, target_point, waypoints); // PathList is referenced
+            cout << waypoints << endl;
+            if(!waypoints.empty())
+            {
+                path_msg.header.stamp = ros::Time::now();
+                path_msg.header.frame_id = "map";
+                path_msg.poses.clear(); // path is a global variable, which must be cleared before filling it
+                for(int i = 0; i < waypoints.size(); i++)
+                {
+                    Point2d map_point;
+                    occgrid_params.Image2MapTransform(waypoints[i], map_point);
 
-        //     }
-        ros::spinOnce();  // 
-        loop_rate.sleep();  // 
+                    geometry_msgs::PoseStamped pose_stamped;
+                    pose_stamped.header.stamp = ros::Time::now();
+                    pose_stamped.header.frame_id = "map";
+                    pose_stamped.pose.position.x = map_point.x;
+                    pose_stamped.pose.position.y = map_point.y;
+                    pose_stamped.pose.position.z = 0;
+                    path_msg.poses.push_back(pose_stamped);
+                    // path is a container of poses.
+                }
+
+                path_pub.publish(path_msg);
+               
+                double end_time = ros::Time::now().toSec();
+
+                ROS_INFO("Find a valid path successfully! Use %f s", end_time - start_time);
+            }
+            else
+            {
+                ROS_ERROR("Can not find a valid path");
+            }
+
+            // Set flag
+            start_plan = false;
+        }
+        // Look for the callbacks
+        ros::spinOnce();  
+        loop_rate.sleep();  
     }
 }

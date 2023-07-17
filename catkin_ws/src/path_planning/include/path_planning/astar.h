@@ -70,10 +70,6 @@ public:
     void InitAstar(Mat& _Map, Mat& Mask, Astar_Mods _config = Astar_Mods()); // Default initialization
     void PathPlanning(Point _startPoint, Point _targetPoint, vector<Point>& path);
     
-    // Understand DrawPath
-    void DrawPath(Mat& _Map, vector<Point>& path, InputArray Mask = noArray(), Scalar color = Scalar(0, 0, 255),
-            int thickness = 1, Scalar maskcolor = Scalar(255, 255, 255));
-
     // Largely used functions, inline is used for faster execution
     // Points are in the image plane
     inline int point2index(Point point) {
@@ -108,6 +104,8 @@ private:
 
 };
 
+
+std::ostream& operator<<(std::ostream& os, const std::vector<Point>& vec);
 
 
 
