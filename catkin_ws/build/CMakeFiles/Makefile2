@@ -802,12 +802,12 @@ path_planning/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
 path_planning/CMakeFiles/path_planning_node.dir/all:
 	$(MAKE) -f path_planning/CMakeFiles/path_planning_node.dir/build.make path_planning/CMakeFiles/path_planning_node.dir/depend
 	$(MAKE) -f path_planning/CMakeFiles/path_planning_node.dir/build.make path_planning/CMakeFiles/path_planning_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles --progress-num=9,10,11 "Built target path_planning_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles --progress-num=9,10,11,12 "Built target path_planning_node"
 .PHONY : path_planning/CMakeFiles/path_planning_node.dir/all
 
 # Build rule for subdir invocation for target.
 path_planning/CMakeFiles/path_planning_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 path_planning/CMakeFiles/path_planning_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/peppe/RP-Project_Robstacles/catkin_ws/build/CMakeFiles 0
 .PHONY : path_planning/CMakeFiles/path_planning_node.dir/rule

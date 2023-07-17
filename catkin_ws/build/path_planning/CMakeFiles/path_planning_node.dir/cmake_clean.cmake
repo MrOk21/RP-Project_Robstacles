@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planning/path_planning_node"
   "/home/peppe/RP-Project_Robstacles/catkin_ws/devel/lib/path_planning/path_planning_node.pdb"
+  "CMakeFiles/path_planning_node.dir/src/astar.cpp.o"
   "CMakeFiles/path_planning_node.dir/src/main.cpp.o"
   "CMakeFiles/path_planning_node.dir/src/occupancy_grid.cpp.o"
 )

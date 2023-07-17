@@ -7,6 +7,8 @@
 #include <geometry_msgs/Quaternion.h>
 #include <opencv2/opencv.hpp>
 #include "path_planning/occupancy_grid.h"
+#include "path_planning/astar.h"
+
 
 
 
@@ -25,14 +27,47 @@ bool found_map;
 bool found_start;
 bool found_target;
 bool start_plan;
-
 int rate;
 
+
+path_planning::Astar_Mods mods;
+path_planning::Astar astar_planner;
+Point start_point, target_point;
+
+
+// Ros Nodes
 ros::Subscriber map_sub;
 
 
 // Callbacks
+void StartPointCallback(const geometry_msgs::PoseWithCovarianceStamped& msg)
+{
+    Point2d map_point = Point2d(msg.pose.pose.position.x, msg.pose.pose.position.y);
+    // start_point is transformed into an integer and converted into an image point
+    Occ_GridParam.Map2ImageTransform(map_point, start_point);
 
+    // Set flag
+    found_start = true;
+    if(map_flag && found_start && found_target)
+    {
+        start_flag = true;
+    }
+
+}
+
+void TargetPointCallback(const geometry_msgs::PoseStamped& msg)
+{
+    Point2d src_point = Point2d(msg.pose.position.x, msg.pose.position.y);
+    Occ_GridParam.Map2ImageTransform(src_point, targetPoint);
+
+    // Set flag
+    targetpoint_flag = true;
+    if(map_flag && startpoint_flag && targetpoint_flag)
+    {
+        start_flag = true;
+    }
+
+}
 void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
 {
     // Get parameters
@@ -64,7 +99,27 @@ void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
         }
     }
 
+    // Initial Astar
+    Mat Mask;
     
+    astar_planner.InitAstar(Map, Mask, mods);
+    cout<<"Message is in the houseinitastar"<<endl;
+
+    // Publish Mask
+    occgrid_mask.header.stamp = ros::Time::now();
+    occgrid_mask.header.frame_id = "map";
+    occgrid_mask.info = msg->info;
+    occgrid_mask.data.clear();
+    
+    for(int i = 0; i < h; i++)
+    {
+        for(int j = 0; j < w; j++)
+        {
+            occupancy_prob = Mask.at<uchar>(h-i-1, j) * 255;
+            occgrid_mask.data.push_back(occupancy_prob);
+        }
+    }
+    cout<<"Message is in the house final part"<<endl;
 
     // Flags
     found_map = true;

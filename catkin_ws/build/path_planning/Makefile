@@ -932,6 +932,33 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build && $(MAKE) -f path_planning/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make path_planning/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
+src/astar.o: src/astar.cpp.o
+
+.PHONY : src/astar.o
+
+# target to build an object file
+src/astar.cpp.o:
+	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build && $(MAKE) -f path_planning/CMakeFiles/path_planning_node.dir/build.make path_planning/CMakeFiles/path_planning_node.dir/src/astar.cpp.o
+.PHONY : src/astar.cpp.o
+
+src/astar.i: src/astar.cpp.i
+
+.PHONY : src/astar.i
+
+# target to preprocess a source file
+src/astar.cpp.i:
+	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build && $(MAKE) -f path_planning/CMakeFiles/path_planning_node.dir/build.make path_planning/CMakeFiles/path_planning_node.dir/src/astar.cpp.i
+.PHONY : src/astar.cpp.i
+
+src/astar.s: src/astar.cpp.s
+
+.PHONY : src/astar.s
+
+# target to generate assembly for a file
+src/astar.cpp.s:
+	cd /home/peppe/RP-Project_Robstacles/catkin_ws/build && $(MAKE) -f path_planning/CMakeFiles/path_planning_node.dir/build.make path_planning/CMakeFiles/path_planning_node.dir/src/astar.cpp.s
+.PHONY : src/astar.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -1050,6 +1077,9 @@ help:
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... src/astar.o"
+	@echo "... src/astar.i"
+	@echo "... src/astar.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

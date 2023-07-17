@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/include/path_planning/astar.h
+iostream
+-
+queue
+-
+unordered_map
+-
+cmath
+-
+opencv2/opencv.hpp
+-
+
 /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/include/path_planning/occupancy_grid.h
 iostream
 -
@@ -37,6 +49,8 @@ opencv2/opencv.hpp
 -
 path_planning/occupancy_grid.h
 /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/path_planning/occupancy_grid.h
+path_planning/astar.h
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/path_planning/astar.h
 
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string
