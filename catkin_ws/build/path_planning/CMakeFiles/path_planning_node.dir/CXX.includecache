@@ -30,10 +30,6 @@ tf/tf.h
 opencv2/opencv.hpp
 -
 
-/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/astar.cpp
-path_planning/astar.h
-/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/path_planning/astar.h
-
 /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/main.cpp
 iostream
 -
