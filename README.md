@@ -8,7 +8,7 @@ Following the instructions given to us by our professor, the project will be str
 
 ### How to make the repository work
 To make sure everything is working properly make sure you have Ubuntu 20.04 with
-ROS Noetic. Install catkin_tools, create a catkin workspace ('{name_of_the_workspace}' folder) 
+ROS Noetic. Install catkin_tools, create a catkin workspace (`{name_of_the_workspace}` folder) 
 ```bash
 cd {name_of_the_workspace}
 mkdir src
@@ -23,12 +23,12 @@ Build your code by running the following command:
 ```bash
 catkin build
 ```
-Among the files of this repository, 'path_planning/' and 'path_follower/' are the main ROS packages. These must be copied in 'src/'.  
+Among the files of this repository, `path_planning/` and `path_follower/` are the main ROS packages. These must be copied in `src/`.  
 After this passage repeat  
 ```bash
 catkin build
 ```
-To play with the ROS A* planner run this command in '{name_of_the_workspace}':  
+To play with the ROS A* planner run this command in `{name_of_the_workspace}`:  
 ```bash
 roslaunch path_planning astar.launch
 ```
@@ -43,6 +43,13 @@ The following topic must be selected:
 The messages for the last two topics are published directly from the RVIZ user interface. The path is drawn on the map, and the 'RobotModel' starts following it at a constant rate.  
 Our implementation allows to change **initialpose**, and **move_base_simple/goal** in real time, in order to have the robot starting to follow a new path, without waiting for the completion of the previous one.
 
+### Results
+
+The **rigid body/robot** used for the simulation is a sphere. Hereafter a visualization of it.  
+![Example Image](images/robot.png)  
+The A* algorithm retrieves a path in real time for short and longer path. Here is a visualization of these.  
+![Example Image](images/simple_path.png)
+![Example Image](images/long_path.png)
 
 
 ### Project Contributors
