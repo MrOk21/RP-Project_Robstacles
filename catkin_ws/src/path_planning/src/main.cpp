@@ -149,7 +149,7 @@ int main(int argc, char * argv[])
     // Set ros rate to 10 Hz
     rate = 10;
     mods.tolerance = 5;
-    mods.Eucl_Heuristics = true;
+    mods.Eucl_Heuristics = false; //false if heuristic is Mahnattan distance, otherwise is the Euclidean.
 
     // Parameter
 
