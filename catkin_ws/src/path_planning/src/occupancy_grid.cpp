@@ -19,6 +19,7 @@ void OccupancyGridUtils::GetParams(const nav_msgs::OccupancyGridConstPtr& msg_)
 
     tf::Matrix3x3(quat_angles).getRPY(roll, pitch, yaw);
     theta = yaw;
+
     // CV_64FC1: 64-bit floating-point single-channel matrix
     Rot = cv::Mat::eye(2, 2, CV_64FC1);
 
