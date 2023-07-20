@@ -47,9 +47,16 @@ Our implementation allows to change **initialpose**, and **move_base_simple/goal
 
 The **rigid body/robot** used for the simulation is a sphere. Hereafter a visualization of it.  
 ![Example Image](images/robot.png)  
-The A* algorithm retrieves a path in real time for short and longer path. Here is a visualization of these.  
+The A* algorithm retrieves a path in real time for short and longer path.  
+The two heuristic functions that were used to generate the path on the grid were the Euclidean distance and the Mahnattan distance.  
+#### Euclidean Distance
+* Short path execution
 ![Example Image](images/simple_path.png)
+* Long path execution
 ![Example Image](images/long_path.png)
+#### Mahnattan Distance
+* Short path execution
+![Example Image](images/mahnattan_path.png)
 
 
 ### Project Contributors
