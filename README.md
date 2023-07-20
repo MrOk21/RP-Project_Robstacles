@@ -43,6 +43,13 @@ The following topic must be selected:
 The messages for the last two topics are published directly from the RVIZ user interface. The path is drawn on the map, and the 'RobotModel' starts following it at a constant rate.  
 Our implementation allows to change **initialpose**, and **move_base_simple/goal** in real time, in order to have the robot starting to follow a new path, without waiting for the completion of the previous one.
 
+### Results
+
+The **rigid body/robot** used for the simulation is a sphere. Hereafter a visualization of it.  
+![Example Image](images/robot.png)  
+The A* algorithm retrieves a path in real time for short and longer path. Here is a visualization of these.  
+![Example Image](images/simple_path.png)
+![Example Image](images/long_path.png)
 
 
 ### Project Contributors
