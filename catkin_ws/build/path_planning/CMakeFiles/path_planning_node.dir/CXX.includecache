@@ -30,6 +30,10 @@ tf/tf.h
 opencv2/opencv.hpp
 -
 
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/astar.cpp
+path_planning/astar.h
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/path_planning/astar.h
+
 /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/main.cpp
 iostream
 -
@@ -51,6 +55,10 @@ path_planning/occupancy_grid.h
 /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/path_planning/occupancy_grid.h
 path_planning/astar.h
 /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/path_planning/astar.h
+
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/occupancy_grid.cpp
+path_planning/occupancy_grid.h
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_planning/src/path_planning/occupancy_grid.h
 
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string

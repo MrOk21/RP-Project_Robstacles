@@ -20,6 +20,10 @@ geometry_msgs/Twist.h
 ros/publisher.h
 -
 
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_follower/src/main.cpp
+path_follower/path_follower.h
+/home/peppe/RP-Project_Robstacles/catkin_ws/src/path_follower/src/path_follower/path_follower.h
+
 /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_follower/src/path_follower.cpp
 path_follower/path_follower.h
 /home/peppe/RP-Project_Robstacles/catkin_ws/src/path_follower/src/path_follower/path_follower.h
