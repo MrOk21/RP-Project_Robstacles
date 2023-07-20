@@ -8,7 +8,7 @@ Following the instructions given to us by our professor, the project will be str
 
 ### How to make the repository work
 To make sure everything is working properly make sure you have Ubuntu 20.04 with
-ROS Noetic. Install catkin_tools, create a catkin workspace ('{name_of_the_workspace}' folder) 
+ROS Noetic. Install catkin_tools, create a catkin workspace (`{name_of_the_workspace}` folder) 
 ```bash
 cd {name_of_the_workspace}
 mkdir src
@@ -23,12 +23,12 @@ Build your code by running the following command:
 ```bash
 catkin build
 ```
-Among the files of this repository, 'path_planning/' and 'path_follower/' are the main ROS packages. These must be copied in 'src/'.  
+Among the files of this repository, `path_planning/` and `path_follower/` are the main ROS packages. These must be copied in `src/`.  
 After this passage repeat  
 ```bash
 catkin build
 ```
-To play with the ROS A* planner run this command in '{name_of_the_workspace}':  
+To play with the ROS A* planner run this command in `{name_of_the_workspace}`:  
 ```bash
 roslaunch path_planning astar.launch
 ```
