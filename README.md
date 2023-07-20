@@ -6,7 +6,7 @@ Following the instructions given to us by our professor, the project will be str
 - Implementation of an RVIZ interface, where the path is published and visualized accordingly;
 - Once the path is visualized, a rigid body follows it at a specific rate, starting from the initial to the final configuration.
 
-### How to make the repository work
+## How to make the repository work
 To make sure everything is working properly make sure you have Ubuntu 20.04 with
 ROS Noetic. Install catkin_tools, create a catkin workspace (`{name_of_the_workspace}` folder) 
 ```bash
@@ -43,20 +43,26 @@ The following topic must be selected:
 The messages for the last two topics are published directly from the RVIZ user interface. The path is drawn on the map, and the 'RobotModel' starts following it at a constant rate.  
 Our implementation allows to change **initialpose**, and **move_base_simple/goal** in real time, in order to have the robot starting to follow a new path, without waiting for the completion of the previous one.
 
-### Results
+## Results
 
 The **rigid body/robot** used for the simulation is a sphere. Hereafter a visualization of it.  
 ![Example Image](images/robot.png)  
 The A* algorithm retrieves a path in real time for short and longer path.  
 The two heuristic functions that were used to generate the path on the grid were the Euclidean distance and the Mahnattan distance.  
-#### Euclidean Distance
+### Euclidean Distance
 * Short path execution
+
+
 ![Example Image](images/simple_path.png)
 * Long path execution
 ![Example Image](images/long_path.png)
-#### Mahnattan Distance
+### Mahnattan Distance
 * Short path execution
+
+
 ![Example Image](images/mahnattan_path.png)
+* Long path execution
+![Example Image](images/mahnattan_long_path.png)
 
 
 ### Project Contributors
