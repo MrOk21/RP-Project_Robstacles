@@ -44,6 +44,8 @@ ros::Subscriber goalpose_sub;
 ros::Publisher path_pub;
 
 
+    
+
 // Callbacks
 void StartPointCallback(const geometry_msgs::PoseWithCovarianceStamped& msg)
 {
@@ -79,12 +81,20 @@ void TargetPointCallback(const geometry_msgs::PoseStamped& msg)
 void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
 {
     // Get parameters
+    Point2d trial_map;
+    trial_map.x = 0;
+    trial_map.y = 0;
+    Point trial_img;
     occgrid_params.GetParams(msg);
 
     // Compute the map obj
     int h = occgrid_params.h;
     int w = occgrid_params.w;
     int occupancy_prob;
+
+    occgrid_params.Map2ImageTransform(trial_map, trial_img);
+    cout<<"Image points at the x origin are: "<<trial_img.x<<", "<<trial_img.y<<endl;
+
 
     // h x w matrix
     Mat Map(h, w, CV_8UC1);
@@ -150,16 +160,16 @@ int main(int argc, char * argv[])
     rate = 10;
     mods.tolerance = 5;
     mods.Eucl_Heuristics = false; //false if heuristic is Mahnattan distance, otherwise is the Euclidean.
-
+    
     // Parameter
 
     // Subscribe topics
-    map_sub = nh.subscribe("map", 10, MapCallback);
-    initpose_sub = nh.subscribe("initialpose", 10, StartPointCallback);
-    goalpose_sub = nh.subscribe("move_base_simple/goal", 10, TargetPointCallback);
+    map_sub = nh.subscribe("map", rate, MapCallback);
+    initpose_sub = nh.subscribe("initialpose", rate, StartPointCallback);
+    goalpose_sub = nh.subscribe("move_base_simple/goal", rate, TargetPointCallback);
 
     // Advertise topic
-    path_pub = nh.advertise<nav_msgs::Path>("nav_path", 10);
+    path_pub = nh.advertise<nav_msgs::Path>("nav_path", rate);
 
     ros::Rate loop_rate(rate);
 
