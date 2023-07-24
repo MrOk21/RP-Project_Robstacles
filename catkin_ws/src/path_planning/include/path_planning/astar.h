@@ -67,7 +67,7 @@ class Astar{
 
 public:
     // Interface function
-    void InitAstar(Mat& _Map, Mat& Mask, Astar_Mods _config = Astar_Mods()); // Default initialization
+    void InitAstar(Mat& _Map, Astar_Mods _config = Astar_Mods()); // Default initialization
     void PathPlanning(Point _startPoint, Point _targetPoint, vector<Point>& path);
     
     // Largely used functions, inline is used for faster execution
@@ -84,7 +84,7 @@ public:
 private:
     // This section is only accessible inside the class
     // Process the map: Inflate, Euclidean, OccupancyThreshold
-    void MapProcess(Mat& Mask);
+    void MapProcess();
     // A* engine
     Node* FindPath();
     // Once the path is found, is reconstructed with GetPath

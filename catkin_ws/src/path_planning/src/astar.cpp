@@ -2,7 +2,7 @@
 
 
 namespace path_planning{
-void Astar::InitAstar(Mat& _Map, Mat& Mask, Astar_Mods _mods)
+void Astar::InitAstar(Mat& _Map, Astar_Mods _mods)
 {
     
 
@@ -19,7 +19,7 @@ void Astar::InitAstar(Mat& _Map, Mat& Mask, Astar_Mods _mods)
     neighbor = Mat(8, 2, CV_32S, neighbor_radius).clone(); // global variable
     
     
-    MapProcess(Mask); // Get the mask for the obstacles....
+    MapProcess(); // Get the mask for the obstacles....
 }
 
 void Astar::PathPlanning(Point _startPoint, Point _targetPoint, vector<Point>& path)
@@ -34,7 +34,7 @@ void Astar::PathPlanning(Point _startPoint, Point _targetPoint, vector<Point>& p
 }
 
 
-void Astar::MapProcess(Mat& Mask)
+void Astar::MapProcess()
 {
     int width = Map.cols;
     int height = Map.rows;
@@ -58,9 +58,7 @@ void Astar::MapProcess(Mat& Mask)
         erode(src, _Map, se);
     }
 
-    // Get mask
-    bitwise_xor(src, _Map, Mask);
-
+ 
     // ObstacleMap
     ObstacleMap = Mat::zeros(height, width, CV_8UC1);
     for(int y=0;y<height;y++)
@@ -172,7 +170,7 @@ Node* Astar::FindPath()
                 if(_ObstacleMap.at<uchar>(y, x) == traversable)
                 {   
                     // Instantiating new node
-                    Node* node = new Node();
+                    Node* node = new Node(); // instantiating in the Heap memory
                     node->point = Point(x, y);
                     node->parent = CurNode;
                     node->G = G;
@@ -183,7 +181,7 @@ Node* Astar::FindPath()
                     OpenSet[index] = node;
                     _ObstacleMap.at<uchar>(y, x) = inOpenSet;
                 }
-                else // The other possibility is that it is already in the OpenSet.
+                else // If only inOpenSet
                 {
                     // Find the node
                     int index = point2index(Point(x, y));

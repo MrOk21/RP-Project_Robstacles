@@ -19,7 +19,7 @@ using namespace cv;
 using namespace std;
 
 OccupancyGridUtils occgrid_params;
-nav_msgs::OccupancyGrid occgrid_mask;
+// nav_msgs::OccupancyGrid occgrid_mask;
 
 
 // Global Variables
@@ -32,7 +32,7 @@ int rate;
 
 path_planning::Astar_Mods mods;
 path_planning::Astar astar_planner;
-nav_msgs::Path path_msg;
+nav_msgs::Path path_msg; // Path to publish
 Point start_point, target_point;
 
 
@@ -78,23 +78,15 @@ void TargetPointCallback(const geometry_msgs::PoseStamped& msg)
 
 
 }
-void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
+void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg) // msg is in Occupancy grid format
 {
     // Get parameters
-    Point2d trial_map;
-    trial_map.x = 0;
-    trial_map.y = 0;
-    Point trial_img;
     occgrid_params.GetParams(msg);
 
     // Compute the map obj
     int h = occgrid_params.h;
     int w = occgrid_params.w;
     int occupancy_prob;
-
-    occgrid_params.Map2ImageTransform(trial_map, trial_img);
-    cout<<"Image points at the x origin are: "<<trial_img.x<<", "<<trial_img.y<<endl;
-
 
     // h x w matrix
     Mat Map(h, w, CV_8UC1);
@@ -108,31 +100,15 @@ void MapCallback(const nav_msgs::OccupancyGridConstPtr& msg)
             // If OccProb is less than 0
             occupancy_prob = (occupancy_prob < 0) ? 100 : occupancy_prob; // set Unknown to 0
             // The origin of the Occ_Grid is on the bottom left corner of the map
-            Map.at<uchar>(h-i-1, j) = 255 - round(occupancy_prob * 255.0 / 100.0);
+            Map.at<uchar>(h-i-1, j) = 255 - round(occupancy_prob * 255.0 / 100.0); // into Image plane RF
             
 
         }
     }
 
-    // Initial Astar
-    Mat Mask;
     
-    astar_planner.InitAstar(Map, Mask, mods);
-    // Publish Mask
-    occgrid_mask.header.stamp = ros::Time::now();
-    occgrid_mask.header.frame_id = "map";
-    occgrid_mask.info = msg->info;
-    occgrid_mask.data.clear();
+    astar_planner.InitAstar(Map, mods);
     
-    for(int i = 0; i < h; i++)
-    {
-        for(int j = 0; j < w; j++)
-        {
-            occupancy_prob = Mask.at<uchar>(h-i-1, j) * 255;
-            occgrid_mask.data.push_back(occupancy_prob);
-        }
-    }
-
     // Flags
     found_map = true;
     found_start = false;
@@ -199,7 +175,7 @@ int main(int argc, char * argv[])
                     pose_stamped.pose.position.y = map_point.y;
                     pose_stamped.pose.position.z = 0;
                     path_msg.poses.push_back(pose_stamped);
-                    // path is a container of poses.
+                    // path_msg is a container of poses.
                 }
 
                 path_pub.publish(path_msg);
@@ -215,6 +191,9 @@ int main(int argc, char * argv[])
 
             // Set flag
             start_plan = false;
+            found_start = false;
+            found_target = false;
+
         }
         // Look for the callbacks
         ros::spinOnce();  
